@@ -2691,6 +2691,7 @@ ulcer
 ulnae
 ulnar
 ultra
+umber
 unapt
 unarm
 unary
