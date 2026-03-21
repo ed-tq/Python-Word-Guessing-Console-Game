@@ -558,6 +558,7 @@ crate
 crave
 crawl
 craze
+crazy
 creak
 cream
 creed
