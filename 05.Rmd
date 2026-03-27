@@ -17,7 +17,7 @@
 
 -  To return a word from the list of words, think about indexing/how to access an item from a list.  
         <details>
-        <summary>📍 Example</summary>  
+        <summary>⭐ Example</summary>  
         -  `list[index]`
         
 </details></details></details>  

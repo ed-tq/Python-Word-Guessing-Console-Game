@@ -9,7 +9,7 @@ Refer to this for any terms/concepts you are unfamiliar with.
 -  [Arrays 🔗](https://www.w3schools.com/python/python_arrays.asp)  
     -  [Lists 🔗](https://www.w3schools.com/python/python_lists.asp)  
         -  [Methods 🔗](https://www.w3schools.com/python/python_ref_list.asp)
-    -  [Tuples 🔗](https://www.w3schools.com/python/python_lists.asp)  
+    -  [Tuples 🔗](https://www.w3schools.com/python/python_tuples.asp)  
     
 ---  
 

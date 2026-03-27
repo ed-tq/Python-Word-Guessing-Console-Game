@@ -10,7 +10,7 @@
 <details>
 <summary>💡 Hint</summary>
 
-*   Use list method `.append()`.
+*   Use list method `.append()`
 </details>
 </div>
 

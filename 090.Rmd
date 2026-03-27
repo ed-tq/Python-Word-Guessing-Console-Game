@@ -1,0 +1,32 @@
+#  📌 Step 9: Define and call `main` function  
+
+This function runs the game.
+
+1.  This functions should call the appropriate function that returns the file name.
+2.  Call the appropriate function that takes the file name and opens and reads it.
+
+Now we can call the function to run the game.
+
+
+<div style="background:#f0f8ff; padding:15px; border-left:5px solid #2c7be5; margin:20px 0;">
+<details>
+<summary>💡 Hint</summary>
+
+- By now you should be able to understand what each function does, how each function works, and how to call them. Look at your code so far or refer to glossary for help.
+- You can also run the project code on a different .py file to see how the project should run.
+</details>
+</div>
+
+
+<div style="background:#fffaf0; padding:15px; border-left:5px solid #FB8C00; margin:20px 0;">
+<details>
+<summary>📝 Test Code</summary>
+```python 
+import urllib.request
+url = "https://raw.githubusercontent.com/ed-tq/Python-Word-Guessing-Console-Game/refs/heads/main/090-test.py"
+with urllib.request.urlopen(url) as response:
+    code = response.read().decode("utf-8")
+exec(code)
+```
+</details>
+</div>

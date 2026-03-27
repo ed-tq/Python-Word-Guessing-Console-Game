@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>📌 Step 5: Define get_random_word function | Word Guess Project Instructions</title>
-  <meta name="description" content="📌 Step 5: Define get_random_word function | Word Guess Project Instructions" />
+  <title>📌 Step 8: Define play_more function | Word Guess Project Instructions</title>
+  <meta name="description" content="📌 Step 8: Define play_more function | Word Guess Project Instructions" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="📌 Step 5: Define get_random_word function | Word Guess Project Instructions" />
+  <meta property="og:title" content="📌 Step 8: Define play_more function | Word Guess Project Instructions" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="📌 Step 5: Define get_random_word function | Word Guess Project Instructions" />
+  <meta name="twitter:title" content="📌 Step 8: Define play_more function | Word Guess Project Instructions" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="step-4-define-list_of_words-function.html"/>
-<link rel="next" href="step-6-define-get_player_guess-function.html"/>
+<link rel="prev" href="step-7-define-play_round-function.html"/>
+<link rel="next" href="step-9-define-play_game-function.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -166,12 +166,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="step-5-define-get_random_word-function" class="section level1 hasAnchor">
-<h1>📌 Step 5: Define <code>get_random_word</code> function<a href="#step-5-define-get_random_word-function" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="step-8-define-play_more-function" class="section level1 hasAnchor">
+<h1>📌 Step 8: Define <code>play_more</code> function<a href="#step-8-define-play_more-function" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This function runs one round of the game.</p>
 <ol style="list-style-type: decimal">
-<li>This function takes a list <code>words</code> as an argument.</li>
-<li>The function picks a random position (index) in the list.</li>
-<li>Returns the word from the <code>words</code> list at that position.</li>
+<li>This function takes two arguments <code>read</code> and <code>rounds</code></li>
+<li>The function should call the appropriate function to create a list of valid words</li>
+<li>Call the appropriate function to choose one word from the list</li>
+<li>Print the round number as <code>Round: X</code> and a blank line after</li>
+<li>Call the appropriate function simulating a round</li>
+<li>Return a tuple where:
+<ul>
+<li>first argument is the result returned by a round simulation</li>
+<li>second arguments is the chosen word</li>
+</ul></li>
 </ol>
 <div style="background:#f0f8ff; padding:15px; border-left:5px solid #2c7be5; margin:20px 0;">
 <details>
@@ -179,33 +187,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 💡 Hint
 </summary>
 <ul>
-<li>Use <code>random.randrange()</code> or <code>random.randint()</code> to get random position/number. Store this number in a variable.
-<details>
-<summary>
-ℹ️ More Information
-</summary>
-<ul>
-<li><code>.randrange(start, stop) or (stop)</code> generates a number from start or 0 (default) to stop - 1 (start number inclusive, stop number not inclusive).
-<ul>
-<li><code>.randint(a, b)</code> generates a number from a to b (both numbers inclusive).<br />
-</li>
-<li>Use len(words) to get the total number on items in the list <code>words</code>.<br />
-</li>
-<li>Make sure the index number exists in the <code>words</code> list (index starts at 0 to len(words)-1).</li>
-</ul></li>
-</ul></li>
-<li>To return a word from the list of words, think about indexing/how to access an item from a list.<br />
-
-<details>
-<summary>
-⭐ Example
-</summary>
-<ul>
-<li><code>list[index]</code></li>
-</ul></li>
+<li>Look back on previous functions and understand what they do.</li>
+<li>You can print the round number using an f-string.</li>
 </ul>
-</details>
-</details>
 </details>
 </div>
 <div style="background:#fffaf0; padding:15px; border-left:5px solid #FB8C00; margin:20px 0;">
@@ -213,11 +197,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <summary>
 📝 Test Code
 </summary>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="step-5-define-get_random_word-function.html#cb6-1" tabindex="-1"></a><span class="im">import</span> urllib.request</span>
-<span id="cb6-2"><a href="step-5-define-get_random_word-function.html#cb6-2" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&quot;https://raw.githubusercontent.com/ed-tq/Python-Word-Guessing-Console-Game/refs/heads/main/05-test.py&quot;</span></span>
-<span id="cb6-3"><a href="step-5-define-get_random_word-function.html#cb6-3" tabindex="-1"></a><span class="cf">with</span> urllib.request.urlopen(url) <span class="im">as</span> response:</span>
-<span id="cb6-4"><a href="step-5-define-get_random_word-function.html#cb6-4" tabindex="-1"></a>    code <span class="op">=</span> response.read().decode(<span class="st">&quot;utf-8&quot;</span>)</span>
-<span id="cb6-5"><a href="step-5-define-get_random_word-function.html#cb6-5" tabindex="-1"></a><span class="bu">exec</span>(code)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="step-8-define-play_more-function.html#cb12-1" tabindex="-1"></a><span class="im">import</span> urllib.request</span>
+<span id="cb12-2"><a href="step-8-define-play_more-function.html#cb12-2" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&quot;https://raw.githubusercontent.com/ed-tq/Python-Word-Guessing-Console-Game/refs/heads/main/09-test.py&quot;</span></span>
+<span id="cb12-3"><a href="step-8-define-play_more-function.html#cb12-3" tabindex="-1"></a><span class="cf">with</span> urllib.request.urlopen(url) <span class="im">as</span> response:</span>
+<span id="cb12-4"><a href="step-8-define-play_more-function.html#cb12-4" tabindex="-1"></a>    code <span class="op">=</span> response.read().decode(<span class="st">&quot;utf-8&quot;</span>)</span>
+<span id="cb12-5"><a href="step-8-define-play_more-function.html#cb12-5" tabindex="-1"></a><span class="bu">exec</span>(code)</span></code></pre></div>
 </details>
 </div>
 
@@ -227,8 +211,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="step-4-define-list_of_words-function.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="step-6-define-get_player_guess-function.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="step-7-define-play_round-function.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="step-9-define-play_game-function.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,7 +1,8 @@
 #  👾 The Project
 
-Run this code in your script file to simulate how your project will look like.
-Remember to delete before starting your project. 
+- Run this code in your script file to simulate how your project will look like.
+- Try different scenarios to get a good understanding of how the project runs.
+- Remember to delete before starting your project.  
 
 <div style="background: #F3E5F5; padding:15px; border-left:5px solid #9c27b0; margin:20px 0; overflow: auto; max-height: 200px">  
 

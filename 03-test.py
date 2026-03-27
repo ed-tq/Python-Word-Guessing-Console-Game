@@ -42,7 +42,7 @@ if 'error' in locals():
     print(type(error).__name__, "-", error)
 else:
     if output.strip() == expected_output.strip():
-        print("✅ Output matches!")
+        print("✔ Output matches!")
     else:
         print("#--- Your code output: ---#\n".center(72))
         print(output.strip() + "\n")
@@ -51,6 +51,6 @@ else:
         print("❌ Output does not match.")
 
     if test_function == 'words.txt':
-        print("✅ Return value is correct: 'words.txt'")
+        print("✔ Return value is correct: 'words.txt'")
     else:
         print(f"❌ Return value is incorrect: {test_function}")

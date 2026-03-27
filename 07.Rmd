@@ -1,4 +1,4 @@
-#  📌 Step : Define `play_round` function
+#  📌 Step 7: Define `play_round` function  
 
 This functions stimulates one round of the game.
 
@@ -14,14 +14,51 @@ This functions stimulates one round of the game.
     - as an underscore if not in the word
 7.  Stop if the user guesses the word correctly or after 6 guesses
 8.  Return a tuple where:
-    - first arguement is the number of guesses used
+    - first argument is the number of guesses used
     - second argument is `True` is the word was guesses, otherwise `False`
   
 <div style="background:#f0f8ff; padding:15px; border-left:5px solid #2c7be5; margin:20px 0;">
 <details>
 <summary>💡 Hint</summary>
 
+- You need a loop to allow the player up to 6 guesses.
+- Start by setting `guesses = 1`.
+- You can call `get_player_guess()` inside the loop to get each guess.
+- Use `range(len(word))` to loop through each position in the word.
 
+<div style="margin-left:20px;">
+<details>
+<summary>ℹ️</summary>
+
+- If `guess[i] == word[i]`, the letter is correct and in the correct position.
+- If `guess[i] in word`, the letter is in the word but in the wrong position.
+- Otherwise, display `_`.
+
+</details>
+</div>
+
+<div style="margin-left:0px;">
+<details>
+<summary>ℹ️</summary>
+
+- Build the display string one character at a time.
+- You may find it helpful to start with an empty display string such as `display = ""`.
+- Add a space after each symbol to match the required output format.
+
+<div style="margin-left:20px;">
+<details>
+<summary>⭐</summary>
+
+```python
+display = ""
+for i in range(len(word)):
+    if guess[i] == word[i]:
+        display += guess[i].upper() + " "
+```
+</details>
+</div>
+</details>
+</div>
 </details>
 </div>
 
@@ -30,8 +67,11 @@ This functions stimulates one round of the game.
 <details>
 <summary>📝 Test Code</summary>
 ```python 
-
-
+import urllib.request
+url = "https://raw.githubusercontent.com/ed-tq/Python-Word-Guessing-Console-Game/refs/heads/main/07-test.py"
+with urllib.request.urlopen(url) as response:
+    code = response.read().decode("utf-8")
+exec(code)
 ```
 </details>
 </div>

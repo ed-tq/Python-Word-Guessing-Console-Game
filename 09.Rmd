@@ -1,0 +1,123 @@
+#  📌 Step 9: Define `play_game` function  
+
+This fucntions runs the full game of 1 or mroe rounds and shows summary
+
+1.  This functions takes one argument `filename`
+2.  Opens the file 
+3.  Reads the file
+4.  Closes the file
+5.  Initialises:
+    - rounds
+    - number of games
+    - number of wins
+    - a dictionary to track wins in across 1 to 6 guesses
+6. repeatedly call the appropriate function to play rounds
+7.  after each round:
+    - check if player won
+    - print success or failure message showing the correct word
+    - update number of wins if player won
+8.  ask the player if they want to continue
+    - 'Y' to continue
+    - 'N' to stop
+    - else print error message and ask again until valid
+9.  If player stops playing:
+    - print summary showing win percentage and win distribution
+10. fucntion ends after printing the summary
+
+
+<div style="background:#f0f8ff; padding:15px; border-left:5px solid #2c7be5; margin:20px 0;">
+<details>
+<summary>💡 Hint</summary>
+
+- First open the file and read the words into a list.
+- You can use `.read().split()` to turn the file contents into a list of words.
+- Do not forget to close the file after reading.
+
+<div style="margin-left:20px;">
+<details>
+<summary>ℹ️</summary>
+
+- You need counters to keep track of:
+  - the round number
+  - the total number of games played
+  - the total number of wins
+- You also need a dictionary to count how many wins happened in 1 guess, 2 guesses, and so on up to 6 guesses.
+
+</details>
+</div>
+
+- Use a `while True:` loop so the game keeps running until the player chooses to stop.
+- At the start of each round, increase the round number by 1.
+- Call `play_more(read, rounds)` to play one round.
+
+<div style="margin-left:20px;">
+<details>
+<summary>ℹ️</summary>
+
+- The value returned by `play_more(read, rounds)` includes:
+  - the game result
+  - the chosen word
+- You can use indexing to access them.
+
+<div style="margin-left:20px;">
+<details>
+<summary>⭐</summary>
+
+    game = play_more(read, rounds)
+    word = game[1]
+
+</details>
+</div>
+
+</details>
+</div>
+
+- if the round was won update:
+  - number of wins
+  - the correct value inside dictionary of wins
+- always increase number of games after each round
+
+<div style="margin-left:20px;">
+<details>
+<summary>ℹ️</summary>
+
+- Ask the user if they want to continue by using input().
+- Keep asking until they enter either 'Y' or 'N'.
+
+</details>
+</div>
+
+- If the user enters 'N', print the summary and stop the loop.
+- The win percentage can be calculated using:
+
+<div style="margin-left:20px;">
+<details>
+<summary>⭐</summary>
+
+    percentage = round(9number of wins / number of games) * 100)
+
+</details>
+</div>
+
+- For the win distribution:
+  - if the count is 0, print the number
+  - otherwise print `#` repeated that many times, followed by count
+
+</details>
+</div>
+
+
+<div style="background:#fffaf0; padding:15px; border-left:5px solid #FB8C00; margin:20px 0;">
+<details>
+<summary>📝 Test Code</summary>
+```python 
+import urllib.request
+url = "https://raw.githubusercontent.com/ed-tq/Python-Word-Guessing-Console-Game/refs/heads/main/09-test.py"
+with urllib.request.urlopen(url) as response:
+    code = response.read().decode("utf-8")
+exec(code)
+```
+</details>
+</div>
+
+

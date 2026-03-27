@@ -31,7 +31,7 @@ are displayed in lowercase.
 <summary>ℹ️ More Information</summary>  
   -  You can use f-string formatting to print a variable in a string. This works for any variable type (e.g. `str`, `int`).
 <details>
-<summary>📍 Example</summary>  
+<summary>⭐ Example</summary>  
 `print(f"Hello {variable_name}!")`
 </details> </details></details>
 </div>

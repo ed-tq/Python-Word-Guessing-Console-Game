@@ -1,0 +1,34 @@
+#  📌 Step 8: Define `play_more` function  
+
+This function runs one round of the game.
+
+1.  This function takes two arguments `read` and `rounds`
+2.  The function should call the appropriate function to create a list of valid words
+3.  Call the appropriate function to choose one word from the list
+4.  Print the round number as `Round: X` and a blank line after
+5.  Call the appropriate function simulating a round
+6.  Return a tuple where:
+    - first argument is the result returned by a round simulation
+    - second arguments is the chosen word
+
+
+<div style="background:#f0f8ff; padding:15px; border-left:5px solid #2c7be5; margin:20px 0;">
+<details>
+<summary>💡 Hint</summary>
+- Look back on previous functions and understand what they do.
+- You can print the round number using an f-string.
+</details> 
+</div>
+
+<div style="background:#fffaf0; padding:15px; border-left:5px solid #FB8C00; margin:20px 0;">
+<details>
+<summary>📝 Test Code</summary>
+```python 
+import urllib.request
+url = "https://raw.githubusercontent.com/ed-tq/Python-Word-Guessing-Console-Game/refs/heads/main/09-test.py"
+with urllib.request.urlopen(url) as response:
+    code = response.read().decode("utf-8")
+exec(code)
+```
+</details>
+</div>

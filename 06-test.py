@@ -70,7 +70,7 @@ def test_get_player_guess():
         print(f"Returned: {result}")
 
         if result == case["expected_return"]:
-            print("✅ Return value correct")
+            print("✔️ Return value correct")
         else:
             print(f"❌ Return value incorrect (expected {case['expected_return']})")
 

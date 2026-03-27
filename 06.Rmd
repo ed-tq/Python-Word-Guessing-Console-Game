@@ -53,7 +53,7 @@
 
 <div style="margin-left:20px;">
 <details>
-<summary>📍</summary>
+<summary>⭐</summary>
 
 ```python
 fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
