@@ -73,7 +73,7 @@ This fucntions runs the full game of 1 or more rounds and shows summary.
 </details>
 </div>
 
-- The win distribution is displays the number of wins across the number of guesses 1-6:
+- The win distribution displays the number of wins across the number of guesses 1-6:
   - if the number of wins is 0, print the number
   - otherwise print `#` repeated by number of wins for each number of guesses, followed by count
   <details>
