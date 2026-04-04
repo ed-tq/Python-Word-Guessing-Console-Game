@@ -1,4 +1,4 @@
-book_filename: "word-guess-guide"
+book_filename: "pywordle-instructions"
 output_dir: "docs"
 rmd_files:
   - index.Rmd
