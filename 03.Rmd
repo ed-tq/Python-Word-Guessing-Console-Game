@@ -1,7 +1,7 @@
 #  📌 Step 3: Define `get_started` function
 
 
-1.   This function stores name of the word file in a variable.
+1.   This function stores the name of the word file in a variable.
 2.   Asks for user name.
 3.   Prints:
 
