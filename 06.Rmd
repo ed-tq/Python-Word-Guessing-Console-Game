@@ -197,7 +197,7 @@ window.addEventListener("load", function () {
       height: 200px;
       border: 1px solid #aaa;
       border-radius: 5px;
-      font-size: 14px;
+      font-size: 15px;
       font-family: monospace;
       background: #ffffff;
       line-height: 1.2 !important;
@@ -220,7 +220,7 @@ window.addEventListener("load", function () {
     .CodeMirror-line,
     .CodeMirror pre {
       line-height: 1.2 !important;
-      font-size: 14px !important;
+      font-size: 15px !important;
       font-family: monospace !important;
     }
   

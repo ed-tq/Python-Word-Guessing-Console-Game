@@ -4,13 +4,10 @@ import ast
 import builtins
 import html
 import io
-import json
 import logging
 import multiprocessing as mp
-import os
 import queue
 import re
-import signal
 import sys
 import traceback
 from typing import Any
@@ -24,7 +21,7 @@ from RestrictedPython.PrintCollector import PrintCollector
 
 try:
     import resource  # Linux only
-except ImportError:  # pragma: no cover
+except ImportError:
     resource = None
 
 
@@ -47,12 +44,12 @@ ALLOWED_IMPORTS = {
     "builtins",
 }
 
+# Restrict STUDENT code only
 BANNED_CALLS = {
     "open",
     "exec",
     "eval",
     "compile",
-    "input",
     "__import__",
     "globals",
     "locals",
@@ -171,7 +168,7 @@ class SafetyVisitor(ast.NodeVisitor):
         return None
 
 
-def validate_code_ast(source: str) -> str | None:
+def validate_student_code_ast(source: str) -> str | None:
     try:
         tree = ast.parse(source, mode="exec")
         SafetyVisitor().visit(tree)
@@ -189,18 +186,42 @@ def guarded_import(name, globals=None, locals=None, fromlist=(), level=0):
     return builtins.__import__(name, globals, locals, fromlist, level)
 
 
-def build_sandbox_globals() -> dict[str, Any]:
+def build_student_globals() -> dict[str, Any]:
     allowed_builtins = dict(safe_builtins)
     allowed_builtins["__import__"] = guarded_import
+    allowed_builtins["input"] = builtins.input
 
     return {
         "__builtins__": allowed_builtins,
-        "__name__": "__main__",
+        "__name__": "__student__",
         "_print_": PrintCollector,
         "_getiter_": default_guarded_getiter,
         "_getattr_": safer_getattr,
         "_write_": full_write_guard,
     }
+
+
+def build_test_globals(student_globals: dict[str, Any]) -> dict[str, Any]:
+    # Trusted test code environment
+    test_globals = {
+        "__builtins__": builtins.__dict__,
+        "__name__": "__main__",
+    }
+
+    # Copy student-defined functions/variables into test scope
+    for key, value in student_globals.items():
+        if key not in {
+            "__builtins__",
+            "__name__",
+            "_print_",
+            "_getiter_",
+            "_getattr_",
+            "_write_",
+            "_print",
+        }:
+            test_globals[key] = value
+
+    return test_globals
 
 
 def apply_resource_limits():
@@ -219,7 +240,7 @@ def apply_resource_limits():
         pass
 
 
-def execute_in_child(full_code: str, result_queue: mp.Queue):
+def execute_in_child(student_code: str, test_code: str, result_queue: mp.Queue):
     apply_resource_limits()
 
     captured = io.StringIO()
@@ -230,18 +251,26 @@ def execute_in_child(full_code: str, result_queue: mp.Queue):
     sys.stderr = captured
 
     try:
-        sandbox_globals = build_sandbox_globals()
-        byte_code = compile_restricted(full_code, "<student_code>", "exec")
-        exec(byte_code, sandbox_globals)
+        # 1. Run restricted student code
+        student_globals = build_student_globals()
+        student_byte_code = compile_restricted(student_code, "<student_code>", "exec")
+        exec(student_byte_code, student_globals)
 
+        # collect RestrictedPython print output if present
         restricted_output = ""
-        if "_print" in sandbox_globals and callable(sandbox_globals["_print"]):
-            restricted_output = sandbox_globals["_print"]()
+        if "_print" in student_globals and callable(student_globals["_print"]):
+            restricted_output = student_globals["_print"]()
 
-        combined_output = captured.getvalue() + restricted_output
+        if restricted_output:
+            print(restricted_output, end="")
+
+        # 2. Run trusted test code using the student's defined functions
+        test_globals = build_test_globals(student_globals)
+        exec(test_code, test_globals)
+
         result_queue.put({
             "ok": True,
-            "raw_output": combined_output,
+            "raw_output": captured.getvalue(),
         })
 
     except AssertionError as e:
@@ -282,18 +311,18 @@ def run_student_code(request: Request):
     if size_error:
         return json_response({"output": size_error}, 400)
 
-    student_ast_error = validate_code_ast(student_code)
+    # Restrict STUDENT code only
+    student_ast_error = validate_student_code_ast(student_code)
     if student_ast_error:
         return json_response({"output": f"Blocked student code: {student_ast_error}"}, 200)
 
-    test_ast_error = validate_code_ast(test_code)
-    if test_ast_error:
-        return json_response({"output": f"Blocked test code: {test_ast_error}"}, 200)
-
-    full_code = f"{student_code}\n\n{test_code}"
-
+    # Do NOT AST-block trusted test code
     result_queue: mp.Queue = mp.Queue()
-    process = mp.Process(target=execute_in_child, args=(full_code, result_queue), daemon=True)
+    process = mp.Process(
+        target=execute_in_child,
+        args=(student_code, test_code, result_queue),
+        daemon=True,
+    )
     process.start()
     process.join(TIMEOUT_SECONDS)
 
