@@ -14,25 +14,17 @@ from typing import Any
 
 import functions_framework
 from flask import jsonify, Request
-from RestrictedPython import compile_restricted
-from RestrictedPython.Eval import default_guarded_getiter
-from RestrictedPython.Guards import full_write_guard, safer_getattr, safe_builtins
-from RestrictedPython.PrintCollector import PrintCollector
 
 try:
-    import resource  # Linux only
+    import resource
 except ImportError:
     resource = None
 
 
-# ----------------------------
-# Configuration
-# ----------------------------
-
 MAX_STUDENT_CODE_LEN = 30_000
 MAX_TEST_CODE_LEN = 30_000
 MAX_TOTAL_CODE_LEN = 50_000
-MAX_AST_NODES = 8_000
+MAX_AST_NODES = 10_000
 MAX_OUTPUT_CHARS = 12_000
 TIMEOUT_SECONDS = 3
 MEMORY_LIMIT_MB = 128
@@ -44,9 +36,7 @@ ALLOWED_IMPORTS = {
     "builtins",
 }
 
-# Restrict STUDENT code only
 BANNED_CALLS = {
-    "open",
     "exec",
     "eval",
     "compile",
@@ -65,7 +55,6 @@ BANNED_CALLS = {
 }
 
 BANNED_NAMES = {
-    "__builtins__",
     "__loader__",
     "__spec__",
     "__package__",
@@ -82,10 +71,6 @@ CORS_HEADERS = {
 logging.basicConfig(level=logging.INFO)
 
 
-# ----------------------------
-# Helpers
-# ----------------------------
-
 def json_response(payload: dict[str, Any], status: int = 200):
     return jsonify(payload), status, CORS_HEADERS
 
@@ -93,21 +78,16 @@ def json_response(payload: dict[str, Any], status: int = 200):
 def sanitize_output(text: str) -> str:
     text = text.replace("\x00", "")
     text = re.sub(r"0x[0-9a-fA-F]+", "0x********", text)
-    text = html.escape(text, quote=False)
     if len(text) > MAX_OUTPUT_CHARS:
         text = text[:MAX_OUTPUT_CHARS] + "\n... output truncated ..."
-    return text
+    return html.escape(text, quote=False)
 
 
 def count_score(output: str) -> dict[str, int]:
     passed = output.count("✔")
     failed = output.count("❌")
     total = passed + failed
-    return {
-        "passed": passed,
-        "failed": failed,
-        "total": total,
-    }
+    return {"passed": passed, "failed": failed, "total": total}
 
 
 def validate_code_size(student_code: str, test_code: str) -> str | None:
@@ -120,7 +100,7 @@ def validate_code_size(student_code: str, test_code: str) -> str | None:
     return None
 
 
-class SafetyVisitor(ast.NodeVisitor):
+class StudentSafetyVisitor(ast.NodeVisitor):
     def __init__(self) -> None:
         self.node_count = 0
 
@@ -150,8 +130,6 @@ class SafetyVisitor(ast.NodeVisitor):
         if isinstance(node, ast.Name):
             if node.id in BANNED_NAMES:
                 raise ValueError(f"Name not allowed: {node.id}")
-            if node.id.startswith("__"):
-                raise ValueError(f"Dunder name not allowed: {node.id}")
 
         if isinstance(node, ast.Attribute):
             if node.attr.startswith("__"):
@@ -171,7 +149,7 @@ class SafetyVisitor(ast.NodeVisitor):
 def validate_student_code_ast(source: str) -> str | None:
     try:
         tree = ast.parse(source, mode="exec")
-        SafetyVisitor().visit(tree)
+        StudentSafetyVisitor().visit(tree)
         return None
     except SyntaxError as e:
         return f"SyntaxError: {e}"
@@ -186,42 +164,45 @@ def guarded_import(name, globals=None, locals=None, fromlist=(), level=0):
     return builtins.__import__(name, globals, locals, fromlist, level)
 
 
-def build_student_globals() -> dict[str, Any]:
-    allowed_builtins = dict(safe_builtins)
-    allowed_builtins["__import__"] = guarded_import
-    allowed_builtins["input"] = builtins.input
+def safe_open(filename, mode="r", *args, **kwargs):
+    allowed_files = {"words.txt"}
+    allowed_modes = {"r", "rt"}
 
+    if filename not in allowed_files:
+        raise PermissionError(f"Opening '{filename}' is not allowed.")
+    if mode not in allowed_modes:
+        raise PermissionError(f"Open mode '{mode}' is not allowed.")
+
+    return builtins.open(filename, mode, *args, **kwargs)
+
+
+def build_safe_builtins() -> dict[str, Any]:
     return {
-        "__builtins__": allowed_builtins,
-        "__name__": "__student__",
-        "_print_": PrintCollector,
-        "_getiter_": default_guarded_getiter,
-        "_getattr_": safer_getattr,
-        "_write_": full_write_guard,
+        "print": print,
+        "input": builtins.input,
+        "len": len,
+        "range": range,
+        "str": str,
+        "int": int,
+        "float": float,
+        "bool": bool,
+        "list": list,
+        "dict": dict,
+        "tuple": tuple,
+        "set": set,
+        "enumerate": enumerate,
+        "zip": zip,
+        "min": min,
+        "max": max,
+        "sum": sum,
+        "abs": abs,
+        "round": round,
+        "sorted": sorted,
+        "any": any,
+        "all": all,
+        "open": safe_open,
+        "__import__": guarded_import,
     }
-
-
-def build_test_globals(student_globals: dict[str, Any]) -> dict[str, Any]:
-    # Trusted test code environment
-    test_globals = {
-        "__builtins__": builtins.__dict__,
-        "__name__": "__main__",
-    }
-
-    # Copy student-defined functions/variables into test scope
-    for key, value in student_globals.items():
-        if key not in {
-            "__builtins__",
-            "__name__",
-            "_print_",
-            "_getiter_",
-            "_getattr_",
-            "_write_",
-            "_print",
-        }:
-            test_globals[key] = value
-
-    return test_globals
 
 
 def apply_resource_limits():
@@ -246,27 +227,24 @@ def execute_in_child(student_code: str, test_code: str, result_queue: mp.Queue):
     captured = io.StringIO()
     old_stdout = sys.stdout
     old_stderr = sys.stderr
-
     sys.stdout = captured
     sys.stderr = captured
 
     try:
-        # 1. Run restricted student code
-        student_globals = build_student_globals()
-        student_byte_code = compile_restricted(student_code, "<student_code>", "exec")
-        exec(student_byte_code, student_globals)
+        shared_globals = {
+            "__builtins__": build_safe_builtins(),
+            "__name__": "__main__",
+        }
 
-        # collect RestrictedPython print output if present
-        restricted_output = ""
-        if "_print" in student_globals and callable(student_globals["_print"]):
-            restricted_output = student_globals["_print"]()
+        # Run restricted student code in shared namespace
+        exec(student_code, shared_globals)
 
-        if restricted_output:
-            print(restricted_output, end="")
+        # Upgrade trusted test environment
+        shared_globals["__builtins__"] = builtins.__dict__
+        shared_globals["__name__"] = "__main__"
 
-        # 2. Run trusted test code using the student's defined functions
-        test_globals = build_test_globals(student_globals)
-        exec(test_code, test_globals)
+        # Run trusted test code in SAME namespace so mocks affect student functions
+        exec(test_code, shared_globals)
 
         result_queue.put({
             "ok": True,
@@ -288,10 +266,6 @@ def execute_in_child(student_code: str, test_code: str, result_queue: mp.Queue):
         sys.stderr = old_stderr
 
 
-# ----------------------------
-# HTTP entrypoint
-# ----------------------------
-
 @functions_framework.http
 def run_student_code(request: Request):
     if request.method == "OPTIONS":
@@ -311,12 +285,10 @@ def run_student_code(request: Request):
     if size_error:
         return json_response({"output": size_error}, 400)
 
-    # Restrict STUDENT code only
     student_ast_error = validate_student_code_ast(student_code)
     if student_ast_error:
         return json_response({"output": f"Blocked student code: {student_ast_error}"}, 200)
 
-    # Do NOT AST-block trusted test code
     result_queue: mp.Queue = mp.Queue()
     process = mp.Process(
         target=execute_in_child,

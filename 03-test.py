@@ -1,3 +1,4 @@
+import builtins
 import io
 import sys
 
@@ -5,13 +6,13 @@ score = 0
 total = 2
 
 original_stdout = sys.stdout
-original_input = __builtins__.input
+original_input = builtins.input
 captured_output = io.StringIO()
 
 try:
     user_input = "Student"
     sys.stdout = captured_output
-    __builtins__.input = lambda _: user_input
+    builtins.input = lambda _: user_input
 
     test_function = get_started()
     output = captured_output.getvalue()
@@ -33,7 +34,7 @@ except Exception as e:
     error = e
 finally:
     sys.stdout = original_stdout
-    __builtins__.input = original_input
+    builtins.input = original_input
 
 if 'error' in locals():
     if isinstance(error, NameError):
@@ -53,7 +54,7 @@ else:
         print("#--- Expected output: ---#\n".center(72))
         print(expected_output.strip() + "\n")
 
-    if test_function == 'words.txt':
+    if test_function == "words.txt":
         print("✔ Test 2: Return value is correct: 'words.txt'")
         score += 1
     else:
