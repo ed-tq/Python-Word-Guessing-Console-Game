@@ -1,8 +1,10 @@
 #  📌 Step 5: Define `get_random_word` function  
 
+<div class="instructions">
 1.  This function takes a list `words` as an argument.
 2.  The function picks a random position (index) in the list.
 3.  Returns the word from the `words` list at that position.
+</div>
 
 <div class="hint-block">
 <details>

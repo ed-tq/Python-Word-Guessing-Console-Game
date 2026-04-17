@@ -1,6 +1,8 @@
 # 📌 Step 2: `Import` modules
 
+<div class="instructions">
 Import the random module so we can use it to get random words from our `words.txt` file.  
+</div>
 
 <div class="hint-block">
 <details>

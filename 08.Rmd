@@ -1,5 +1,6 @@
 #  📌 Step 8: Define `play_more` function  
 
+<div class="instructions">
 This function runs one round of the game.
 
 1.  This function takes two arguments `read` and `rounds`
@@ -10,7 +11,7 @@ This function runs one round of the game.
 6.  Return a tuple where:
     - first argument is the result returned by a round simulation
     - second arguments is the chosen word
-
+</div>
 
 <div class="hint-block">
 <details>

@@ -1,5 +1,6 @@
 #  📌 Step 6: Define `get_player_guess` function  
 
+<div class="instructions">
 1.  This function opens the file `words.txt` and reads all the words into a list, where each word is stripped of whitespace and converted to lowercase.  
 2. The function then repeatedly prompts the user to enter a guess using a `while True` loop. The user input should also be converted to lowercase.    
 <details>
@@ -13,7 +14,7 @@
     - The guess must exist in the list of valid words  
 4.  If the guess does not meet any of the conditions, print an appropriate error message and the user is prompted again.  
 5.  Once a valid guess is entered, the function returns the guess in lowercase.  
-
+</div>
 
 <div class="hint-block">
 <details>

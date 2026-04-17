@@ -1,12 +1,13 @@
 #  📌 Step 10: Define and call `main` function  
 
+<div class="instructions">
 This function runs the game.
 
 1.  This functions should call the appropriate function that returns the file name.
 2.  Call the appropriate function that takes the file name and opens and reads it.
 
 Now we can call the function to run the game 🎉
-
+</div>
 
 <div class="hint-block">
 <details>

@@ -1,5 +1,6 @@
 #  📌 Step 9: Define `play_game` function  
 
+<div class="instructions">
 This fucntions runs the full game of 1 or more rounds and shows summary.
 
 1.  This functions takes one argument `filename`
@@ -21,7 +22,7 @@ This fucntions runs the full game of 1 or more rounds and shows summary.
 9.  If player stops playing:
     - print summary showing win percentage and win distribution
 10. Function should end after printing the summary
-
+</div>
 
 <div class="hint-block">
 <details>

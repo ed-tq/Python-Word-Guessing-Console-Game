@@ -1,5 +1,6 @@
 #  📌 Step 7: Define `play_round` function  
 
+<div class="instructions">
 This functions stimulates one round of the game.
 
 1.  Takes an argument called `word`.
@@ -16,7 +17,8 @@ This functions stimulates one round of the game.
 8.  Return a tuple where:
     - first argument is the number of guesses used
     - second argument is `True` is the word was guesses, otherwise `False`
-  
+</div> 
+
 <div class="hint-block">
 <details>
 <summary>💡 Hint</summary>

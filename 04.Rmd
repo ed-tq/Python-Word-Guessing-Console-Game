@@ -1,9 +1,11 @@
 # 📌 Step 4: Define `list_of_words` function  
 
+<div class="instructions">
 1.  This function takes a list of words, `read`, as an argument
 2.  Creates a new empty list, `words_list`.
 3.  Loops over each item in `read` and adds to new list.
 4.  Returns the new list.
+</div>
 
 <div class="hint-block">
 <details>
