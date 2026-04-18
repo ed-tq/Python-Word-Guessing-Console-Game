@@ -14,10 +14,8 @@ try:
     user_input = "Student"
     sys.stdout = captured_output
     builtins.input = lambda _: user_input
-
     test_function = get_started()
     output = captured_output.getvalue()
-
     expected_output = """
 Welcome to Wordle 101 Student
 
@@ -38,22 +36,24 @@ finally:
     builtins.input = original_input
 
 if error is not None:
-    if isinstance(error, NameError):
-        print("❌ Test 1: Function 'get_started' not defined")
-        print("❌ Test 2: Return value could not be checked")
-    else:
-        print(f"❌ Unexpected error: {type(error).__name__} - {error}")
-        print("❌ Test 2: Return value could not be checked")
+    print(f"❌ Test 1: {type(error).__name__} - {error}")
+    print(f"❌ Test 2: {type(error).__name__} - {error}")
 else:
     if output.strip() == expected_output.strip():
         print("✔ Test 1: Output matches expected output")
         score += 1
     else:
-        print("❌ Test 1: Output does not match expected output")
-        print("#--- Your code output: ---#\n".center(72))
-        print(output.strip() + "\n")
-        print("#--- Expected output: ---#\n".center(72))
-        print(expected_output.strip() + "\n")
+        print("❌ Test 1: Output does not match expected output\n")
+        actual_lines = output.strip().splitlines()
+        expected_lines = expected_output.strip().splitlines()
+        max_lines = max(len(actual_lines), len(expected_lines))
+        for i in range(max_lines):
+            actual_line = actual_lines[i] if i < len(actual_lines) else "<missing line>"
+            expected_line = expected_lines[i] if i < len(expected_lines) else "<missing line>"
+            if actual_line != expected_line:
+                print(f"  ❌ Line {i+1}:")
+                print(f"     Got:      '{actual_line}'")
+                print(f"     Expected: '{expected_line}'\n")
 
     if test_function == "words.txt":
         print("✔ Test 2: Return value is correct: 'words.txt'")
