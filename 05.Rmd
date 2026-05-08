@@ -28,10 +28,10 @@
         <summary>⭐ Example</summary>  
         -  `word_list[index]` returns the item at the specified index in the list.
         
-</details></details>
+</details>
+</details>
 </div>
 </details>  
-</div>
 
 ```{=html}
 <div class="check-block">
@@ -265,3 +265,4 @@ window.addEventListener("load", function () {
 });
 </script>
 ```
+

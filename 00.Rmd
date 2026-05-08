@@ -3,11 +3,11 @@
 Quick revision links for concepts you need to know before starting this project.
 Refer to this for any terms/concepts you are unfamiliar with.
 
-<div style="padding:15px; border-left:5px solid #87CEEB; margin:20px 0; overflow: auto; max-height: 200px">  
-
 ```{=html}
 <base target="_blank">
 ```
+<div style="padding:15px; border-left:5px solid #87CEEB; margin:20px 0; overflow: auto; max-height: 200px">  
+
 ####  A 
 -  [Arrays 🔗](https://www.w3schools.com/python/python_arrays.asp)  
     -  [Lists 🔗](https://www.w3schools.com/python/python_lists.asp)  
