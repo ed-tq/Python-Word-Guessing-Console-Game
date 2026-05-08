@@ -1,4 +1,14 @@
-#  📌 Step 6: Define `get_player_guess` function  
+#  📌 Step 6: Define `get_player_guess` function 
+
+```{=html}
+<div class="py-links">
+<a href="https://www.w3schools.com/python/python_file_handling.asp#:~:text=File%20Handling" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">File Handling 🔗</a>
+<a href="https://www.w3schools.com/python/python_file_open.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">File Open 🔗</a>
+<a href="https://www.w3schools.com/python/python_while_loops.asp#:~:text=The%20while%20Loop" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">While Loops 🔗</a>
+<a href="https://www.w3schools.com/python/python_strings_modify.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Modify Strings 🔗</a>
+<a href="https://www.w3schools.com/python/python_conditions.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">If Statements 🔗</a>
+</div>
+```
 
 <div class="instructions">
 1.  This function opens the file `words.txt` and reads all the words into a list, where each word is stripped of whitespace and converted to lowercase.  
@@ -19,37 +29,43 @@
 <div class="hint-block">
 <details>
 <summary>💡 Hint</summary>
-<p style="margin-top:10px; margin-left:15px;"></p>
+<div style="padding-top:15px; padding-left:10px; padding-right:40px; padding-bottom:10px;">
 
-- You need to read words from a file called `words.txt`. Think about how to open a file safely in Python.  
-  Note: when you open a file you need to make sure to close it.  
-
-<div style="margin-left:40px;">
-<details>
-<summary>ℹ️</summary>
-
-- You can use a `with open(...)` statement so the file is automatically closed after reading.
-
-</details>
-</div>
-
-- Once the file is open, you can loop through each line in the file to access the words.
+- Think about how to open and read a file safely in Python.   
+- Remember that files should be properly closed after use.
 
 <div style="margin-left:40px;">
 <details>
 <summary>ℹ️</summary>
 
-- Words may include extra whitespace or newline characters. Use `.strip()` to clean each word  
-- Convert each word to lowercase using `.lower()`  
-- Store the cleaned words in a list using a list comprehension  
+- Use `with open("filename.txt") as variableName:` to open a file. This automatically closes the file after reading.
+- Alternatively:
+  ```python
+  variableName = open("filename.txt")
+  # file read code
+  variableName.close()
+  ```
+- Once the file is open (where `variableName` is a file object), you have two main ways to process it:
+    - Loop through it line by line using `for line in variableName`, which reads one line at a time as a string and allows you to process or append it to a list.
+    - Or use `variableName.read().split()`, which reads the entire file into a single string and splits it into a list of strings using whitespace by default (spaces, tabs, or newlines). `"1 hello".split()` → `["1", "hello"]`  
+    
+      **Note:** In `words.txt`, each word is on a new line, so both approaches will produce the same result.
+    
+    
+- Words may include extra whitespace or newline characters. Use `.strip()` to remove surrounding whitespace.
+- Convert each word to lowercase using`.lower()`.
+- You can store cleaned words using a list comprehension.
 
-<div style="margin-left:20px;">
+<div style="margin-left:40px;">
 <details>
 <summary>ℹ️</summary>
 
 - You can chain methods/operations as long as each method/operation works on the object type returned by the previous one:
   - `"hello world".split()[0].upper()`:
-  `.split()` works on str, `"hello world"`, returns a list `["hello", "world"]` → `[0]` works on list, returns a str, `"hello"` → `.upper()` works on str, returns str
+    1.  `.split()` works on string → returns a list `["hello", "world"]` 
+    2.   `[0]` works on list → returns a string `"hello"`  
+    3.  `.upper()` works on string → returns string `"HELLO"`
+  
 - Basic list comprehension format:  
   `new_list = [expression for item in iterable]`
 
@@ -69,10 +85,18 @@ is the same as:
 ```python
 upper_fruits = [f.upper() for f in fruits]
 ```
-</details></div></details></div></details></div>
-- To check if the number of letters is not 5 → `len(...) != 5`
-- To check if the guess is not alphabetic → `.isalpha()`
-- To check if the guess is not a valid word → `not in`
+
+</details>
+</div>
+
+</details></div></details></div>
+- To check **if** the number of letters is not 5 → `len(...) != 5`
+- To check **if** the guess is not alphabetic → `.isalpha()`
+- To check **if** the guess is not a valid word → `word not in word_list`  
+**Note:** Consecutive `if` statements are evaluated independently, while `elif` only runs if all previous `if` or `elif` conditions were false. We use separate `if` statements here because we want to check all conditions and report every issue with the input, rather than stopping after the first failure.
+- Use `continue` to restart the loop and prompt the user again if a condition is not met.
+
+</div>
 </details>
 </div>
 

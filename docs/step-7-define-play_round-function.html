@@ -50,6 +50,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link rel="icon" type="image/png" href="pywordleicon.png">
 
 
 <style type="text/css">
@@ -141,15 +142,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="step-1-download-your-files.html"><a href="step-1-download-your-files.html"><i class="fa fa-check"></i>📌 Step 1: Download your files️</a></li>
 <li class="chapter" data-level="" data-path="step-2-import-modules.html"><a href="step-2-import-modules.html"><i class="fa fa-check"></i>📌 Step 2: <code>Import</code> modules</a></li>
 <li class="chapter" data-level="" data-path="step-3-define-get_started-function.html"><a href="step-3-define-get_started-function.html"><i class="fa fa-check"></i>📌 Step 3: Define <code>get_started</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-4-define-list_of_words-function.html"><a href="step-4-define-list_of_words-function.html"><i class="fa fa-check"></i>📌 Step 4: Define <code>list_of_words</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-5-define-get_random_word-function.html"><a href="step-5-define-get_random_word-function.html"><i class="fa fa-check"></i>📌 Step 5: Define <code>get_random_word</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-6-define-get_player_guess-function.html"><a href="step-6-define-get_player_guess-function.html"><i class="fa fa-check"></i>📌 Step 6: Define <code>get_player_guess</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-7-define-play_round-function.html"><a href="step-7-define-play_round-function.html"><i class="fa fa-check"></i>📌 Step 7: Define <code>play_round</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-8-define-play_more-function.html"><a href="step-8-define-play_more-function.html"><i class="fa fa-check"></i>📌 Step 8: Define <code>play_more</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-9-define-play_game-function.html"><a href="step-9-define-play_game-function.html"><i class="fa fa-check"></i>📌 Step 9: Define <code>play_game</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-10-define-and-call-main-function.html"><a href="step-10-define-and-call-main-function.html"><i class="fa fa-check"></i>📌 Step 10: Define and call <code>main</code> function</a></li>
-<li class="chapter" data-level="" data-path="quiz.html"><a href="quiz.html"><i class="fa fa-check"></i>🧠 Quiz</a></li>
-<li class="chapter" data-level="" data-path="feedback.html"><a href="feedback.html"><i class="fa fa-check"></i>📩 Feedback</a></li>
 </ul>
 
       </nav>
@@ -174,8 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>Takes an argument called <code>word</code>.</li>
 <li>Initialise <code>guesses</code> to 1</li>
-<li>Create an initial <code>game_state</code> tuple of five underscores.</li>
-<li>Repeatedly ask the player for a guess by calling the function that gets player guess.</li>
+<li>Repeatedly ask the player for a guess by calling the function that gets player’s guess.</li>
 <li>Compare the guess to the target <code>word</code>.
 <ul>
 <li>Do this by comparing each letter.</li>
@@ -190,7 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Return a tuple where:
 <ul>
 <li>first argument is the number of guesses used</li>
-<li>second argument is <code>True</code> is the word was guesses, otherwise <code>False</code></li>
+<li>second argument is <code>True</code> if the word was guessed, otherwise <code>False</code></li>
 </ul></li>
 </ol>
 </div>
@@ -199,48 +190,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <summary>
 💡 Hint
 </summary>
-<p style="margin-top:10px; margin-left:15px;">
-</p>
+<div style="padding-top:15px; padding-left:10px; padding-right:40px; padding-bottom:10px;">
 <ul>
-<li>You need a loop to allow the player up to 6 guesses.</li>
-<li>Start by setting <code>guesses = 1</code>.</li>
-<li>You can call <code>get_player_guess()</code> inside the loop to get each guess.</li>
-<li>Use <code>range(len(word))</code> to loop through each position in the word.</li>
+<li>You need a loop to allow the player up to 6 guesses and track the number of guesses used</li>
+<li>Use <code>range(...)</code> to loop through each position in the word.</li>
+<li>To display the letters:
+<ul>
+<li>Compare each letter using string access method to check position of letters and use operators to check if the letter is in the word but in the wrong position.</li>
+</ul></li>
+<li>After displaying, check if the guess matches the word (make sure that the letter case is the same) or if the number of guesses has reached the maximum 6 to return the tuple with the correct arguments<br />
+</li>
+<li>Otherwise, increment <code>guesses</code> and loop again.</li>
 </ul>
-<div style="margin-left:20px;margin-bottom:15px;">
+<div style="margin-left:40px; margin-top:-14px;">
 <details>
 <summary>
 ℹ️
 </summary>
 <ul>
-<li>If <code>guess[i] == word[i]</code>, the letter is correct and in the correct position.</li>
-<li>If <code>guess[i] in word</code>, the letter is in the word but in the wrong position.</li>
-<li>Otherwise, display <code>_</code>.</li>
-</ul>
-<div style="margin-left:20px;">
-<details>
-<summary>
-ℹ️
-</summary>
-<ul>
-<li>Build the display string one character at a time.</li>
+<li>Build a display string one character at a time.</li>
 <li>You may find it helpful to start with an empty display string such as <code>display = ""</code>.</li>
 <li>Add a space after each symbol to match the required output format.</li>
 </ul>
-<div style="margin-left:20px;">
+<div style="margin-left:20px;  margin-top:-14px;">
 <details>
 <summary>
 ⭐
 </summary>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="step-7-define-play_round-function.html#cb4-1" tabindex="-1"></a>display <span class="op">=</span> <span class="st">&quot;&quot;</span></span>
-<span id="cb4-2"><a href="step-7-define-play_round-function.html#cb4-2" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(word)):</span>
-<span id="cb4-3"><a href="step-7-define-play_round-function.html#cb4-3" tabindex="-1"></a>    <span class="cf">if</span> guess[i] <span class="op">==</span> word[i]:</span>
-<span id="cb4-4"><a href="step-7-define-play_round-function.html#cb4-4" tabindex="-1"></a>        display <span class="op">+=</span> guess[i].upper() <span class="op">+</span> <span class="st">&quot; &quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="step-7-define-play_round-function.html#cb5-1" tabindex="-1"></a>display <span class="op">=</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb5-2"><a href="step-7-define-play_round-function.html#cb5-2" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(word)):</span>
+<span id="cb5-3"><a href="step-7-define-play_round-function.html#cb5-3" tabindex="-1"></a>    <span class="cf">if</span> guess[i] <span class="op">==</span> word[i]:</span>
+<span id="cb5-4"><a href="step-7-define-play_round-function.html#cb5-4" tabindex="-1"></a>        display <span class="op">+=</span> guess[i].upper() <span class="op">+</span> <span class="st">&quot; &quot;</span></span></code></pre></div>
 </details>
 </div>
 </details>
 </div>
-</details>
 </div>
 </details>
 </div>

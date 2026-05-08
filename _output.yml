@@ -4,3 +4,5 @@ bookdown::gitbook:
   number_sections: false
   collapse: section
   scroll_highlight: yes
+  includes:
+    in_header: header.html

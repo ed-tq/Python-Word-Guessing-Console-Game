@@ -1,5 +1,13 @@
 # 📌 Step 4: Define `list_of_words` function  
 
+```{=html}
+<div class="py-links">
+<a href="https://www.w3schools.com/python/python_functions.asp#:~:text=Creating%20a%20Function" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Functions 🔗</a>
+<a href="https://www.w3schools.com/python/python_lists_loop.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Loop Lists 🔗</a>
+<a href="https://www.w3schools.com/python/python_ref_list.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">List Methods 🔗</a>
+</div>
+```
+
 <div class="instructions">
 1.  This function takes a list of words, `read`, as an argument
 2.  Creates a new empty list, `words_list`.
@@ -10,9 +18,9 @@
 <div class="hint-block">
 <details>
 <summary>💡 Hint</summary>
-<p style="margin-top:10px; margin-left:15px;">
-Use list method <code>.append(...)</code>
-</p>
+<div style="padding-top:15px; padding-left:25px; padding-right:40px; padding-bottom:10px;">
+Use list method <a href="https://www.w3schools.com/python/ref_list_append.asp" target="_blank" style="text-decoration: none;"><code>.append(...)</code></a> to add an item to a list.
+</div>
 </details>
 </div>
 

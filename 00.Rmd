@@ -5,6 +5,9 @@ Refer to this for any terms/concepts you are unfamiliar with.
 
 <div style="padding:15px; border-left:5px solid #87CEEB; margin:20px 0; overflow: auto; max-height: 200px">  
 
+```{=html}
+<base target="_blank">
+```
 ####  A 
 -  [Arrays 🔗](https://www.w3schools.com/python/python_arrays.asp)  
     -  [Lists 🔗](https://www.w3schools.com/python/python_lists.asp)  
@@ -46,11 +49,6 @@ Refer to this for any terms/concepts you are unfamiliar with.
 
 ---
 
-#### I
--  [Input/Prompts 🔗](https://www.w3schools.com/python/python_user_input.asp)  
-
----
-
 #### K
 -  [Keywords 🔗](https://www.w3schools.com/python/python_ref_keywords.asp)
     -  [Break 🔗](https://www.w3schools.com/python/ref_keyword_break.asp)
@@ -89,5 +87,10 @@ Refer to this for any terms/concepts you are unfamiliar with.
     -  [Formatting 🔗](https://www.w3schools.com/python/python_string_formatting.asp)
     -  [Methods 🔗](https://www.w3schools.com/python/python_ref_string.asp)
     -  [Modifying 🔗](https://www.w3schools.com/python/python_strings_modify.asp)
+
+---
+
+#### U
+-  [User Input 🔗](https://www.w3schools.com/python/python_user_input.asp)  
 
 </div>

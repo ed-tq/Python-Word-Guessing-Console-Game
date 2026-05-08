@@ -1,27 +1,27 @@
 #  📌 Step 9: Define `play_game` function  
 
 <div class="instructions">
-This fucntions runs the full game of 1 or more rounds and shows summary.
+This function runs the full game of 1 or more rounds and shows summary.
 
 1.  This functions takes one argument `filename`
-3.  Reads the file and turn the file contents into a list of words
-5.  Initialises:
+2.  Reads the file and turn the file contents into a list of words
+.  Initialises:
     - rounds
     - number of games
     - number of wins
     - a dictionary to track wins in across 1 to 6 guesses
-6.  Repeatedly call the appropriate function that play a round
-7.  After each round:
+3.  Repeatedly call the appropriate function that play a round
+4.  After each round:
     - check if player won
     - print success or failure message showing the correct word
     - update number of wins if player won
-8.  Ask the player if they want to continue
+5.  Ask the player if they want to continue
     - 'Y' to continue
     - 'N' to stop
     - else print error message and ask again until valid
-9.  If player stops playing:
+6.  If player stops playing:
     - print summary showing win percentage and win distribution
-10. Function should end after printing the summary
+7. Function should end after printing the summary
 </div>
 
 <div class="hint-block">

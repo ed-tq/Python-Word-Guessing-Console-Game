@@ -50,6 +50,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link rel="icon" type="image/png" href="pywordleicon.png">
 
 
 <style type="text/css">
@@ -141,15 +142,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="step-1-download-your-files.html"><a href="step-1-download-your-files.html"><i class="fa fa-check"></i>📌 Step 1: Download your files️</a></li>
 <li class="chapter" data-level="" data-path="step-2-import-modules.html"><a href="step-2-import-modules.html"><i class="fa fa-check"></i>📌 Step 2: <code>Import</code> modules</a></li>
 <li class="chapter" data-level="" data-path="step-3-define-get_started-function.html"><a href="step-3-define-get_started-function.html"><i class="fa fa-check"></i>📌 Step 3: Define <code>get_started</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-4-define-list_of_words-function.html"><a href="step-4-define-list_of_words-function.html"><i class="fa fa-check"></i>📌 Step 4: Define <code>list_of_words</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-5-define-get_random_word-function.html"><a href="step-5-define-get_random_word-function.html"><i class="fa fa-check"></i>📌 Step 5: Define <code>get_random_word</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-6-define-get_player_guess-function.html"><a href="step-6-define-get_player_guess-function.html"><i class="fa fa-check"></i>📌 Step 6: Define <code>get_player_guess</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-7-define-play_round-function.html"><a href="step-7-define-play_round-function.html"><i class="fa fa-check"></i>📌 Step 7: Define <code>play_round</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-8-define-play_more-function.html"><a href="step-8-define-play_more-function.html"><i class="fa fa-check"></i>📌 Step 8: Define <code>play_more</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-9-define-play_game-function.html"><a href="step-9-define-play_game-function.html"><i class="fa fa-check"></i>📌 Step 9: Define <code>play_game</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-10-define-and-call-main-function.html"><a href="step-10-define-and-call-main-function.html"><i class="fa fa-check"></i>📌 Step 10: Define and call <code>main</code> function</a></li>
-<li class="chapter" data-level="" data-path="quiz.html"><a href="quiz.html"><i class="fa fa-check"></i>🧠 Quiz</a></li>
-<li class="chapter" data-level="" data-path="feedback.html"><a href="feedback.html"><i class="fa fa-check"></i>📩 Feedback</a></li>
 </ul>
 
       </nav>
@@ -169,6 +161,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="step-5-define-get_random_word-function" class="section level1 hasAnchor">
 <h1>📌 Step 5: Define <code>get_random_word</code> function<a href="#step-5-define-get_random_word-function" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="py-links">
+<a href="https://www.w3schools.com/python/python_lists_access.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Access List Items 🔗</a>
+</div>
 <div class="instructions">
 <ol style="list-style-type: decimal">
 <li>This function takes a list <code>words</code> as an argument.</li>
@@ -181,36 +176,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <summary>
 💡 Hint
 </summary>
-<p style="margin-top:10px; margin-left:15px;">
-</p>
+<div style="padding-top:15px; padding-left:10px; padding-right:40px; padding-bottom:10px;">
 <ul>
-<li>Use <code>randrange(...)</code> or <code>randint(...)</code> from the <code>random</code> module to get random position/number. Store this number in a variable.</li>
-<li>To To call a function from a module: <code>moduleName.functionName(...)</code>
+<li>Use <code>randrange(...)</code> or <code>randint(...)</code> from the <code>random</code> module to generate a random number that can be used as an index when accessing an item in a list. Store this number in a variable.</li>
+<li>Make sure the index is within the valid range of the <code>words</code> list. The valid index range is from <code>0</code> to <code>len(words) - 1</code>, where <code>len(words)</code> returns the number of items in the list <code>words</code>.<br />
+</li>
+<li>To call a function from a module: <code>moduleName.functionName(...)</code>
 <details>
 <summary>
 ℹ️ More Information
 </summary>
 <ul>
-<li><code>.randrange(start, stop)</code> or <code>.randrange(stop)</code> generates a number from start or 0 (default) to stop - 1 (start number inclusive, stop number not inclusive).<br />
+<li><code>.randrange(start, stop)</code> or <code>.randrange(stop)</code> returns a random integer starting from <code>start</code> (or 0 by default) up to but not including <code>stop</code>.</li>
+<li><code>.randint(a, b)</code> returns a random integer between <code>a</code> and <code>b</code>, including both values.<br />
 </li>
-<li><code>.randint(a, b)</code> generates a number from a to b (both numbers inclusive).<br />
-</li>
-<li>Use <code>len(words)</code> to get the total number on items in the list <code>words</code>.<br />
-</li>
-<li>Make sure the index number exists in the <code>words</code> list (index starts at 0 to <code>len(words)-1</code>).</li>
 </ul></li>
-<li>To return a word from the list of words, think about indexing/how to access an item from a list.<br />
+<li>To return a word from the list of words, think about how to access an item from a list.<br />
 
 <details>
 <summary>
 ⭐ Example
 </summary>
 <ul>
-<li><code>list[index]</code></li>
+<li><code>word_list[index]</code> returns the item at the specified index in the list.</li>
 </ul></li>
 </ul>
 </details>
 </details>
+</div>
 </details>
 </div>
 <div class="check-block">

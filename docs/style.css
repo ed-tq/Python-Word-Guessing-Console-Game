@@ -130,3 +130,25 @@
   margin: 1em 0 1.5em;
   font-size: 0.97em;
 }
+
+.py-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0.6em 0 1.2em;
+}
+.py-link {
+  font-family: "Fira Mono", Consolas, monospace;
+  font-size: 0.78em;
+  background: #e8f2fb;
+  color: #1a5a8a;
+  border-radius: 4px;
+  padding: 2px 8px;
+  border: 1px solid #bcd9f0;
+  text-decoration: none;
+}
+
+.py-link:hover {
+  background: #c5d8ee;
+  cursor: pointer;
+}

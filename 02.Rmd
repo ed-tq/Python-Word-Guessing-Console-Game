@@ -1,5 +1,11 @@
 # 📌 Step 2: `Import` modules
 
+```{=html}
+<div class="py-links">
+  <a href="https://www.w3schools.com/python/python_modules.asp#:~:text=Use%20a%20Module" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Modules 🔗</a>
+</div>
+```
+
 <div class="instructions">
 1.  Import the `random` module.  
 <details>
@@ -11,9 +17,9 @@ This lets us select random words from our `words.txt` file using functions like 
 <div class="hint-block">
 <details>
 <summary>💡 Hint</summary>
-<p style="margin-top:10px; margin-left:15px;">
+<div style="padding-top:15px; padding-left:25px; padding-right:40px; padding-bottom:10px;">
 To use all functions from a module: <code>import moduleName</code>
-</p>
+</div>
 </details>
 </div>
 

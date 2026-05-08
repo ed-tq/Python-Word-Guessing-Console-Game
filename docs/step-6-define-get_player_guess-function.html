@@ -50,6 +50,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link rel="icon" type="image/png" href="pywordleicon.png">
 
 
 <style type="text/css">
@@ -141,15 +142,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="step-1-download-your-files.html"><a href="step-1-download-your-files.html"><i class="fa fa-check"></i>📌 Step 1: Download your files️</a></li>
 <li class="chapter" data-level="" data-path="step-2-import-modules.html"><a href="step-2-import-modules.html"><i class="fa fa-check"></i>📌 Step 2: <code>Import</code> modules</a></li>
 <li class="chapter" data-level="" data-path="step-3-define-get_started-function.html"><a href="step-3-define-get_started-function.html"><i class="fa fa-check"></i>📌 Step 3: Define <code>get_started</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-4-define-list_of_words-function.html"><a href="step-4-define-list_of_words-function.html"><i class="fa fa-check"></i>📌 Step 4: Define <code>list_of_words</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-5-define-get_random_word-function.html"><a href="step-5-define-get_random_word-function.html"><i class="fa fa-check"></i>📌 Step 5: Define <code>get_random_word</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-6-define-get_player_guess-function.html"><a href="step-6-define-get_player_guess-function.html"><i class="fa fa-check"></i>📌 Step 6: Define <code>get_player_guess</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-7-define-play_round-function.html"><a href="step-7-define-play_round-function.html"><i class="fa fa-check"></i>📌 Step 7: Define <code>play_round</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-8-define-play_more-function.html"><a href="step-8-define-play_more-function.html"><i class="fa fa-check"></i>📌 Step 8: Define <code>play_more</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-9-define-play_game-function.html"><a href="step-9-define-play_game-function.html"><i class="fa fa-check"></i>📌 Step 9: Define <code>play_game</code> function</a></li>
-<li class="chapter" data-level="" data-path="step-10-define-and-call-main-function.html"><a href="step-10-define-and-call-main-function.html"><i class="fa fa-check"></i>📌 Step 10: Define and call <code>main</code> function</a></li>
-<li class="chapter" data-level="" data-path="quiz.html"><a href="quiz.html"><i class="fa fa-check"></i>🧠 Quiz</a></li>
-<li class="chapter" data-level="" data-path="feedback.html"><a href="feedback.html"><i class="fa fa-check"></i>📩 Feedback</a></li>
 </ul>
 
       </nav>
@@ -169,6 +161,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="step-6-define-get_player_guess-function" class="section level1 hasAnchor">
 <h1>📌 Step 6: Define <code>get_player_guess</code> function<a href="#step-6-define-get_player_guess-function" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="py-links">
+<a href="https://www.w3schools.com/python/python_file_handling.asp#:~:text=File%20Handling" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">File Handling 🔗</a>
+<a href="https://www.w3schools.com/python/python_file_open.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">File Open 🔗</a>
+<a href="https://www.w3schools.com/python/python_while_loops.asp#:~:text=The%20while%20Loop" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">While Loops 🔗</a>
+<a href="https://www.w3schools.com/python/python_strings_modify.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Modify Strings 🔗</a>
+<a href="https://www.w3schools.com/python/python_conditions.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">If Statements 🔗</a>
+</div>
 <div class="instructions">
 <ol style="list-style-type: decimal">
 <li>This function opens the file <code>words.txt</code> and reads all the words into a list, where each word is stripped of whitespace and converted to lowercase.<br />
@@ -202,11 +201,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <summary>
 💡 Hint
 </summary>
-<p style="margin-top:10px; margin-left:15px;">
-</p>
+<div style="padding-top:15px; padding-left:10px; padding-right:40px; padding-bottom:10px;">
 <ul>
-<li>You need to read words from a file called <code>words.txt</code>. Think about how to open a file safely in Python.<br />
-Note: when you open a file you need to make sure to close it.</li>
+<li>Think about how to open and read a file safely in Python.<br />
+</li>
+<li>Remember that files should be properly closed after use.</li>
 </ul>
 <div style="margin-left:40px;">
 <details>
@@ -214,26 +213,22 @@ Note: when you open a file you need to make sure to close it.</li>
 ℹ️
 </summary>
 <ul>
-<li>You can use a <code>with open(...)</code> statement so the file is automatically closed after reading.</li>
-</ul>
-</details>
-</div>
+<li><p>Use <code>with open("filename.txt") as variableName:</code> to open a file. This automatically closes the file after reading.</p></li>
+<li><p>Alternatively:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="step-6-define-get_player_guess-function.html#cb2-1" tabindex="-1"></a>variableName <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;filename.txt&quot;</span>)</span>
+<span id="cb2-2"><a href="step-6-define-get_player_guess-function.html#cb2-2" tabindex="-1"></a><span class="co"># file read code</span></span>
+<span id="cb2-3"><a href="step-6-define-get_player_guess-function.html#cb2-3" tabindex="-1"></a>variableName.close()</span></code></pre></div></li>
+<li><p>Once the file is open (where <code>variableName</code> is a file object), you have two main ways to process it:</p>
 <ul>
-<li>Once the file is open, you can loop through each line in the file to access the words.</li>
+<li><p>Loop through it line by line using <code>for line in variableName</code>, which reads one line at a time as a string and allows you to process or append it to a list.</p></li>
+<li><p>Or use <code>variableName.read().split()</code>, which reads the entire file into a single string and splits it into a list of strings using whitespace by default (spaces, tabs, or newlines). <code>"1 hello".split()</code> → <code>["1", "hello"]</code></p>
+<p><strong>Note:</strong> In <code>words.txt</code>, each word is on a new line, so both approaches will produce the same result.</p></li>
+</ul></li>
+<li><p>Words may include extra whitespace or newline characters. Use <code>.strip()</code> to remove surrounding whitespace.</p></li>
+<li><p>Convert each word to lowercase using<code>.lower()</code>.</p></li>
+<li><p>You can store cleaned words using a list comprehension.</p></li>
 </ul>
 <div style="margin-left:40px;">
-<details>
-<summary>
-ℹ️
-</summary>
-<ul>
-<li>Words may include extra whitespace or newline characters. Use <code>.strip()</code> to clean each word<br />
-</li>
-<li>Convert each word to lowercase using <code>.lower()</code><br />
-</li>
-<li>Store the cleaned words in a list using a list comprehension</li>
-</ul>
-<div style="margin-left:20px;">
 <details>
 <summary>
 ℹ️
@@ -242,7 +237,12 @@ Note: when you open a file you need to make sure to close it.</li>
 <li>You can chain methods/operations as long as each method/operation works on the object type returned by the previous one:
 <ul>
 <li><code>"hello world".split()[0].upper()</code>:
-<code>.split()</code> works on str, <code>"hello world"</code>, returns a list <code>["hello", "world"]</code> → <code>[0]</code> works on list, returns a str, <code>"hello"</code> → <code>.upper()</code> works on str, returns str</li>
+<ol style="list-style-type: decimal">
+<li><code>.split()</code> works on string → returns a list <code>["hello", "world"]</code></li>
+<li><code>[0]</code> works on list → returns a string <code>"hello"</code><br />
+</li>
+<li><code>.upper()</code> works on string → returns string <code>"HELLO"</code></li>
+</ol></li>
 </ul></li>
 <li>Basic list comprehension format:<br />
 <code>new_list = [expression for item in iterable]</code></li>
@@ -252,13 +252,13 @@ Note: when you open a file you need to make sure to close it.</li>
 <summary>
 ⭐
 </summary>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="step-6-define-get_player_guess-function.html#cb2-1" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>, <span class="st">&quot;kiwi&quot;</span>, <span class="st">&quot;mango&quot;</span>]</span>
-<span id="cb2-2"><a href="step-6-define-get_player_guess-function.html#cb2-2" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="step-6-define-get_player_guess-function.html#cb2-3" tabindex="-1"></a>upper_fruits <span class="op">=</span> []</span>
-<span id="cb2-4"><a href="step-6-define-get_player_guess-function.html#cb2-4" tabindex="-1"></a><span class="cf">for</span> f <span class="kw">in</span> fruits:</span>
-<span id="cb2-5"><a href="step-6-define-get_player_guess-function.html#cb2-5" tabindex="-1"></a>    upper_fruits.append(f.upper())</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="step-6-define-get_player_guess-function.html#cb3-1" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>, <span class="st">&quot;kiwi&quot;</span>, <span class="st">&quot;mango&quot;</span>]</span>
+<span id="cb3-2"><a href="step-6-define-get_player_guess-function.html#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="step-6-define-get_player_guess-function.html#cb3-3" tabindex="-1"></a>upper_fruits <span class="op">=</span> []</span>
+<span id="cb3-4"><a href="step-6-define-get_player_guess-function.html#cb3-4" tabindex="-1"></a><span class="cf">for</span> f <span class="kw">in</span> fruits:</span>
+<span id="cb3-5"><a href="step-6-define-get_player_guess-function.html#cb3-5" tabindex="-1"></a>    upper_fruits.append(f.upper())</span></code></pre></div>
 <p>is the same as:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="step-6-define-get_player_guess-function.html#cb3-1" tabindex="-1"></a>upper_fruits <span class="op">=</span> [f.upper() <span class="cf">for</span> f <span class="kw">in</span> fruits]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="step-6-define-get_player_guess-function.html#cb4-1" tabindex="-1"></a>upper_fruits <span class="op">=</span> [f.upper() <span class="cf">for</span> f <span class="kw">in</span> fruits]</span></code></pre></div>
 </details>
 </div>
 </details>
@@ -266,10 +266,13 @@ Note: when you open a file you need to make sure to close it.</li>
 </details>
 </div>
 <ul>
-<li>To check if the number of letters is not 5 → <code>len(...) != 5</code></li>
-<li>To check if the guess is not alphabetic → <code>.isalpha()</code></li>
-<li>To check if the guess is not a valid word → <code>not in</code></li>
+<li>To check <strong>if</strong> the number of letters is not 5 → <code>len(...) != 5</code></li>
+<li>To check <strong>if</strong> the guess is not alphabetic → <code>.isalpha()</code></li>
+<li>To check <strong>if</strong> the guess is not a valid word → <code>word not in word_list</code><br />
+<strong>Note:</strong> Consecutive <code>if</code> statements are evaluated independently, while <code>elif</code> only runs if all previous <code>if</code> or <code>elif</code> conditions were false. We use separate <code>if</code> statements here because we want to check all conditions and report every issue with the input, rather than stopping after the first failure.</li>
+<li>Use <code>continue</code> to restart the loop and prompt the user again if a condition is not met.</li>
 </ul>
+</div>
 </details>
 </div>
 <div class="check-block">

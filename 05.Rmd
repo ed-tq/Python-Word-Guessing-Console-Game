@@ -1,5 +1,11 @@
 #  📌 Step 5: Define `get_random_word` function  
 
+```{=html}
+<div class="py-links">
+<a href="https://www.w3schools.com/python/python_lists_access.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Access List Items 🔗</a>
+</div>
+```
+
 <div class="instructions">
 1.  This function takes a list `words` as an argument.
 2.  The function picks a random position (index) in the list.
@@ -9,21 +15,22 @@
 <div class="hint-block">
 <details>
 <summary>💡 Hint</summary>
-<p style="margin-top:10px; margin-left:15px;"></p>
--  Use `randrange(...)` or `randint(...)` from the `random` module to get random position/number. Store this number in a variable.
--   To To call a function from a module: `moduleName.functionName(...)`
+<div style="padding-top:15px; padding-left:10px; padding-right:40px; padding-bottom:10px;">
+-  Use `randrange(...)` or `randint(...)` from the `random` module to generate a random number that can be used as an index when accessing an item in a list. Store this number in a variable.
+- Make sure the index is within the valid range of the `words` list. The valid index range is from `0` to `len(words) - 1`, where `len(words)` returns the number of items in the list `words`.  
+-   To call a function from a module: `moduleName.functionName(...)`
     <details>
     <summary>ℹ️ More Information</summary>
-    -  `.randrange(start, stop)` or `.randrange(stop)` generates a number from start or 0 (default) to stop - 1 (start number inclusive, stop number not inclusive).  
-    -  `.randint(a, b)` generates a number from a to b (both numbers inclusive).  
-      -  Use `len(words)` to get the total number on items in the list `words`.  
-      -  Make sure the index number exists in the `words` list (index starts at 0 to `len(words)-1`).
--  To return a word from the list of words, think about indexing/how to access an item from a list.  
+    -  `.randrange(start, stop)` or `.randrange(stop)` returns a random integer starting from `start` (or 0 by default) up to but not including `stop`.
+    -  `.randint(a, b)` returns a random integer between `a` and `b`, including both values.  
+-  To return a word from the list of words, think about how to access an item from a list.  
         <details>
         <summary>⭐ Example</summary>  
-        -  `list[index]`
+        -  `word_list[index]` returns the item at the specified index in the list.
         
-</details></details></details>  
+</details></details>
+</div>
+</details>  
 </div>
 
 ```{=html}
