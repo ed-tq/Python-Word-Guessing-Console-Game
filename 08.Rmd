@@ -16,9 +16,10 @@ This function runs one round of the game.
 <div class="hint-block">
 <details>
 <summary>💡 Hint</summary>
-<p style="margin-top:10px; margin-left:15px;"></p>
+<div style="padding-top:15px; padding-left:10px; padding-right:40px; padding-bottom:10px;">
 - Look back on previous functions and understand what they do.
 - You can print the round number using an f-string.
+</div>
 </details> 
 </div>
 

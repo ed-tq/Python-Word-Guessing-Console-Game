@@ -174,8 +174,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This function runs the full game of 1 or more rounds and shows summary.</p>
 <ol style="list-style-type: decimal">
 <li>This functions takes one argument <code>filename</code></li>
-<li>Reads the file and turn the file contents into a list of words
-. Initialises:
+<li>Reads the file and turn the file contents into a list of words</li>
+<li>Initialises:
 <ul>
 <li>rounds</li>
 <li>number of games</li>
@@ -207,23 +207,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <summary>
 💡 Hint
 </summary>
-<p style="margin-top:10px; margin-left:15px;">
-</p>
+<div style="padding-top:15px; padding-left:10px; padding-right:40px; padding-bottom:10px;">
 <ul>
 <li>First open the file and read the words into a list.
 <ul>
-<li>You can use <code>.split()</code></li>
+<li>You can use <a href="https://www.w3schools.com/python/ref_string_split.asp" target="_blank" style="text-decoration: none;"><code>.split()</code></a></li>
 </ul></li>
 <li>Do not forget to close the file after reading.</li>
 <li>The dictionary counts how many wins happened in 1 guess, 2 guesses, and so on (up to 6).</li>
 <li>Use a <code>while True:</code> loop so the game keeps running until the player chooses to stop.</li>
 <li>At the start of each round, increase the round number by 1.</li>
-<li>The function in that plays a round takes two arguments and returns a <strong>tuple</strong>.
+<li>The function that plays a round takes two arguments and returns a <strong>tuple</strong>.
 <ul>
 <li>You need to consider what arguments it takes when calling and how to use its return value in your code.</li>
 </ul></li>
 </ul>
-<div style="margin-left:60px;">
+<div style="margin-left:60px;margin-top:-14px;">
 <details>
 <summary>
 ℹ️
@@ -236,7 +235,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>You can use indexing to access them.</li>
 </ul></li>
 </ul>
-<div style="margin-left:20px;">
+<div style="margin-left:40px;margin-top:-14px;">
 <details>
 <summary>
 ⭐
@@ -254,17 +253,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>the correct value inside dictionary of wins</li>
 </ul></li>
 <li>Always increase number of games after each round</li>
-<li>The win percentage can be calculated using:</li>
-</ul>
-<div style="margin-left:40px;">
-<details>
-<summary>
-⭐
-</summary>
-<pre><code>percentage = round((number_of_wins / number_of_games) * 100)</code></pre>
-</details>
-</div>
-<ul>
+<li>The win percentage can be calculated using: <code>percentage = round((number_of_wins / number_of_games) * 100)</code></li>
 <li>The win distribution displays the number of wins across the number of guesses 1-6:
 <ul>
 <li>if the number of wins is 0, print the number</li>
@@ -277,6 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </details></li>
 </ul>
+</div>
 </details>
 </div>
 <div class="check-block">
