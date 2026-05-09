@@ -43,7 +43,10 @@ are displayed in lowercase.
 <details>
 <summary>⭐ Example</summary>  
 `print(f"Hello {variable_name}!")`
-</details> </details></div></details>
+</details>
+</details>
+</div>
+</details>
 </div>
 
 

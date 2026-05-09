@@ -32,6 +32,7 @@
 </details>
 </div>
 </details>  
+</div>
 
 ```{=html}
 <div class="check-block">

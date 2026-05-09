@@ -34,7 +34,7 @@
 - Think about how to open and read a file safely in Python.   
 - Remember that files should be properly closed after use.
 
-<div style="margin-left:40px;">
+<div style="margin-left:40px; margin-top:-14px;">
 <details>
 <summary>ℹ️</summary>
 
