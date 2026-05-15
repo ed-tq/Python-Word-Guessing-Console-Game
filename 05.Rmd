@@ -2,7 +2,8 @@
 
 ```{=html}
 <div class="py-links">
-<a href="https://www.w3schools.com/python/python_lists_access.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Access List Items 🔗</a>
+<a href="https://www.w3schools.com/python/python_lists_access.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">List Indexing 🔗</a>
+<a href="https://www.w3schools.com/python/module_random.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Random Module 🔗</a>
 </div>
 ```
 
@@ -16,22 +17,30 @@
 <details>
 <summary>💡 Hint</summary>
 <div style="padding-top:15px; padding-left:10px; padding-right:40px; padding-bottom:10px;">
+
 -  Use `randrange(...)` or `randint(...)` from the `random` module to generate a random number that can be used as an index when accessing an item in a list. Store this number in a variable.
-- Make sure the index is within the valid range of the `words` list. The valid index range is from `0` to `len(words) - 1`, where `len(words)` returns the number of items in the list `words`.  
--   To call a function from a module: `moduleName.functionName(...)`
-    <details>
-    <summary>ℹ️ More Information</summary>
-    -  `.randrange(start, stop)` or `.randrange(stop)` returns a random integer starting from `start` (or 0 by default) up to but not including `stop`.
-    -  `.randint(a, b)` returns a random integer between `a` and `b`, including both values.  
--  To return a word from the list of words, think about how to access an item from a list.  
-        <details>
-        <summary>⭐ Example</summary>  
-        -  `word_list[index]` returns the item at the specified index in the list.
-        
-</details>
+
+<div style="margin-left:40px; margin-top:-14px;">
+<details>
+<summary>ℹ️ More Information</summary>
+  -  `.randrange(start, stop)` or `.randrange(stop)` returns a random integer starting from `start` (or 0 by default) up to but not including `stop`.  
+  -  `.randint(a, b)` returns a random integer between `a` and `b`, including both values.
 </details>
 </div>
-</details>  
+
+- Make sure the index is within the valid range of the `words` list. The valid index range is from `0` to `len(words) - 1`, where `len(words)` returns the number of items in the list `words`. 
+-   To call a function from a module: `moduleName.functionName(...)`
+-  To return a word from the list of words, think about how to access an item from a list.
+
+<div style="margin-left:40px; margin-top:-14px; padding-bottom:10px;">
+<details>
+<summary>⭐ Example</summary>  
+  -  `word_list[index]` returns the item at the specified index in the list.
+</details>
+</div>
+
+</div>
+</details>
 </div>
 
 ```{=html}
@@ -103,6 +112,7 @@ window.addEventListener("load", function () {
       tabSize: 4,
       indentWithTabs: false,
       lineWrapping: true,
+      overwriteToggle: false,
       extraKeys: {
         Tab: function(cm) {
           if (cm.somethingSelected()) {

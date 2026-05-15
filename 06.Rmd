@@ -6,7 +6,9 @@
 <a href="https://www.w3schools.com/python/python_file_open.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">File Open 🔗</a>
 <a href="https://www.w3schools.com/python/python_while_loops.asp#:~:text=The%20while%20Loop" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">While Loops 🔗</a>
 <a href="https://www.w3schools.com/python/python_strings_modify.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Modify Strings 🔗</a>
+<a href="https://www.w3schools.com/python/python_ref_string.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">String Methods 🔗</a>
 <a href="https://www.w3schools.com/python/python_conditions.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">If Statements 🔗</a>
+<a href="https://www.w3schools.com/python/python_operators_membership.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Membership Operators 🔗</a>
 </div>
 ```
 
@@ -45,31 +47,27 @@
   # file read code
   variableName.close()
   ```
-- Once the file is open (where `variableName` is a file object), you have two main ways to process it:
-    - Loop through it line by line using `for line in variableName`, which reads one line at a time as a string and allows you to process or append it to a list.
-    - Or use `variableName.read().split()`, which reads the entire file into a single string and splits it into a list of strings using whitespace by default (spaces, tabs, or newlines). `"1 hello".split()` → `["1", "hello"]`  
-    
+- Once the file is open (where `variableName` is the file object), you have two ways to read and clean the words:
+    - **Line by line:** `for line in variableName`, which reads one line at a time as a string and allows you to process or append it to a list - use `.strip()` to remove the newline `\n` at the end of each line, and `.lower()` to lowercase.
+    - **Whole file:** `variableName.read().split()`, which reads the entire file into a single string and splits it into a list of strings using whitespace by default (spaces, tabs, or newlines). For example, `"1 hello".split()` → `["1", "hello"]`. Since `.split()` already removes whitespace and newlines, only `.lower()` is needed. Apply `.lower()` to each word using a loop or list comprehension.
+      - You can chain methods/operations as long as each method/operation works on the object type returned by the previous one:
+        - `"hello world".split()[0].upper()`:
+          1.  `.split()` works on string → returns a list `["hello", "world"]` 
+          2.   `[0]` works on list → returns a string `"hello"`  
+          3.  `.upper()` works on string → returns string `"HELLO"`
+  
       **Note:** In `words.txt`, each word is on a new line, so both approaches will produce the same result.
     
-    
-- Words may include extra whitespace or newline characters. Use `.strip()` to remove surrounding whitespace.
-- Convert each word to lowercase using`.lower()`.
 - You can store cleaned words using a list comprehension.
 
-<div style="margin-left:40px;">
+<div style="margin-left:40px; margin-top:-14px;">
 <details>
 <summary>ℹ️</summary>
 
-- You can chain methods/operations as long as each method/operation works on the object type returned by the previous one:
-  - `"hello world".split()[0].upper()`:
-    1.  `.split()` works on string → returns a list `["hello", "world"]` 
-    2.   `[0]` works on list → returns a string `"hello"`  
-    3.  `.upper()` works on string → returns string `"HELLO"`
-  
 - Basic list comprehension format:  
   `new_list = [expression for item in iterable]`
 
-<div style="margin-left:20px;">
+<div style="margin-left:40px; margin-top:-14px;">
 <details>
 <summary>⭐</summary>
 
@@ -88,8 +86,10 @@ upper_fruits = [f.upper() for f in fruits]
 
 </details>
 </div>
-
-</details></div></details></div>
+</details>
+</div>
+</details>
+</div>
 - To check **if** the number of letters is not 5 → `len(...) != 5`
 - To check **if** the guess is not alphabetic → `.isalpha()`
 - To check **if** the guess is not a valid word → `word not in word_list`  
@@ -168,6 +168,7 @@ window.addEventListener("load", function () {
       tabSize: 4,
       indentWithTabs: false,
       lineWrapping: true,
+      overwriteToggle: false,
       extraKeys: {
         Tab: function(cm) {
           if (cm.somethingSelected()) {

@@ -50,7 +50,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<link rel="icon" type="image/png" href="pywordlefavicon2.png">
+<link rel="icon" type="image/png" href="pywordlefavicon3.png">
 
 
 <style type="text/css">
@@ -170,6 +170,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="step-7-define-play_round-function" class="section level1 hasAnchor">
 <h1>📌 Step 7: Define <code>play_round</code> function<a href="#step-7-define-play_round-function" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="py-links">
+<a href="https://www.w3schools.com/python/python_while_loops.asp#:~:text=The%20while%20Loop" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">While Loops 🔗</a>
+<a href="https://www.w3schools.com/python/python_for_loops.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">For Loops 🔗</a>
+<a href="https://www.w3schools.com/python/python_strings.asp#:~:text=Strings%20are%20Arrays" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">String Indexing 🔗</a>
+<a href="https://www.w3schools.com/python/python_ref_string.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">String Methods 🔗</a>
+<a href="https://www.w3schools.com/python/python_conditions.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">If Statements 🔗</a>
+<a href="https://www.w3schools.com/python/python_operators_membership.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Membership Operators 🔗</a>
+<a href="https://www.w3schools.com/python/python_operators_comparison.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Comparison Operators 🔗</a>
+<a href="https://www.w3schools.com/python/python_tuples.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Tuples 🔗</a>
+</div>
 <div class="instructions">
 <p>This functions stimulates one round of the game.</p>
 <ol style="list-style-type: decimal">
@@ -201,15 +211,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </summary>
 <div style="padding-top:15px; padding-left:10px; padding-right:40px; padding-bottom:10px;">
 <ul>
-<li>You need a loop to allow the player up to 6 guesses and track the number of guesses used</li>
-<li>Use <code>range(...)</code> to loop through each position in the word.</li>
-<li>To display the letters:
-<ul>
-<li>Compare each letter using string access method to check position of letters and use operators to check if the letter is in the word but in the wrong position.</li>
-</ul></li>
-<li>After displaying, check if the guess matches the word (make sure that the letter case is the same) or if the number of guesses has reached the maximum 6 to return the tuple with the correct arguments<br />
-</li>
-<li>Otherwise, increment <code>guesses</code> and loop again.</li>
+<li>You need a loop to allow the player up to 6 guesses and track the number of guesses used.</li>
+<li>Use <a href="https://www.w3schools.com/python/python_range.asp#:~:text=Using%20ranges" target="_blank" style="text-decoration: none;"><code>range(…)</code></a> to loop through each position in the word. At each position, compare the guessed letter to the word’s letter at the same position, and check if the guessed letter appears anywhere in the word.</li>
 </ul>
 <div style="margin-left:40px; margin-top:-14px;">
 <details>
@@ -234,6 +237,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </details>
 </div>
+<ul>
+<li>After displaying, check if the guess matches the word (make sure letter case is consistent when comparing) or if the number of guesses has reached the maximum 6 to return the tuple with the correct arguments<br />
+</li>
+<li>Otherwise, increment <code>guesses</code> and loop again.</li>
+</ul>
 </div>
 </details>
 </div>
@@ -304,6 +312,7 @@ window.addEventListener("load", function () {
       tabSize: 4,
       indentWithTabs: false,
       lineWrapping: true,
+      overwriteToggle: false,
       extraKeys: {
         Tab: function(cm) {
           if (cm.somethingSelected()) {

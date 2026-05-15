@@ -50,7 +50,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<link rel="icon" type="image/png" href="pywordlefavicon2.png">
+<link rel="icon" type="image/png" href="pywordlefavicon3.png">
 
 
 <style type="text/css">
@@ -171,7 +171,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="step-5-define-get_random_word-function" class="section level1 hasAnchor">
 <h1>📌 Step 5: Define <code>get_random_word</code> function<a href="#step-5-define-get_random_word-function" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div class="py-links">
-<a href="https://www.w3schools.com/python/python_lists_access.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Access List Items 🔗</a>
+<a href="https://www.w3schools.com/python/python_lists_access.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">List Indexing 🔗</a>
+<a href="https://www.w3schools.com/python/module_random.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Random Module 🔗</a>
 </div>
 <div class="instructions">
 <ol style="list-style-type: decimal">
@@ -188,30 +189,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="padding-top:15px; padding-left:10px; padding-right:40px; padding-bottom:10px;">
 <ul>
 <li>Use <code>randrange(...)</code> or <code>randint(...)</code> from the <code>random</code> module to generate a random number that can be used as an index when accessing an item in a list. Store this number in a variable.</li>
-<li>Make sure the index is within the valid range of the <code>words</code> list. The valid index range is from <code>0</code> to <code>len(words) - 1</code>, where <code>len(words)</code> returns the number of items in the list <code>words</code>.<br />
-</li>
-<li>To call a function from a module: <code>moduleName.functionName(...)</code>
+</ul>
+<div style="margin-left:40px; margin-top:-14px;">
 <details>
 <summary>
 ℹ️ More Information
 </summary>
 <ul>
-<li><code>.randrange(start, stop)</code> or <code>.randrange(stop)</code> returns a random integer starting from <code>start</code> (or 0 by default) up to but not including <code>stop</code>.</li>
-<li><code>.randint(a, b)</code> returns a random integer between <code>a</code> and <code>b</code>, including both values.<br />
+<li><code>.randrange(start, stop)</code> or <code>.randrange(stop)</code> returns a random integer starting from <code>start</code> (or 0 by default) up to but not including <code>stop</code>.<br />
 </li>
-</ul></li>
-<li>To return a word from the list of words, think about how to access an item from a list.<br />
-
+<li><code>.randint(a, b)</code> returns a random integer between <code>a</code> and <code>b</code>, including both values.</li>
+</ul>
+</details>
+</div>
+<ul>
+<li>Make sure the index is within the valid range of the <code>words</code> list. The valid index range is from <code>0</code> to <code>len(words) - 1</code>, where <code>len(words)</code> returns the number of items in the list <code>words</code>.</li>
+<li>To call a function from a module: <code>moduleName.functionName(...)</code></li>
+<li>To return a word from the list of words, think about how to access an item from a list.</li>
+</ul>
+<div style="margin-left:40px; margin-top:-14px; padding-bottom:10px;">
 <details>
 <summary>
 ⭐ Example
 </summary>
 <ul>
 <li><code>word_list[index]</code> returns the item at the specified index in the list.</li>
-</ul></li>
 </ul>
 </details>
-</details>
+</div>
 </div>
 </details>
 </div>
@@ -283,6 +288,7 @@ window.addEventListener("load", function () {
       tabSize: 4,
       indentWithTabs: false,
       lineWrapping: true,
+      overwriteToggle: false,
       extraKeys: {
         Tab: function(cm) {
           if (cm.somethingSelected()) {

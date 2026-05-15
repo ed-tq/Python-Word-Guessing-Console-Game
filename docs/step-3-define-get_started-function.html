@@ -50,7 +50,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<link rel="icon" type="image/png" href="pywordlefavicon2.png">
+<link rel="icon" type="image/png" href="pywordlefavicon3.png">
 
 
 <style type="text/css">
@@ -210,23 +210,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>You can use <code>\n</code> in a long string <code>"..."</code> to continue a sentence on a new line.<br />
 </li>
-<li><code>[userName]</code> should be the name entered by the user.<br />
-
+<li><code>[userName]</code> should be the name entered by the user.</li>
+</ul>
+<div style="margin-left:40px; margin-top:-14px; padding-bottom:10px;">
 <details>
 <summary>
 ℹ️ More Information
 </summary>
 <ul>
-<li>You can use f-string formatting to print a variable in a string. This works for any variable type (e.g. <code>str</code>, <code>int</code>).
+<li>You can use f-string formatting to print a variable in a string. This works for any variable type (e.g. <code>str</code>, <code>int</code>).</li>
+</ul>
+<div style="margin-left:40px; margin-top:-14px; padding-bottom:10px;">
 <details>
 <summary>
 ⭐ Example
 </summary>
-<code>print(f"Hello {variable_name}!")</code></li>
-</ul>
+<p><code>print(f"Hello {variable_name}!")</code></p>
 </details>
-</details></li>
-</ul>
+</div>
+</details>
+</div>
 </div>
 </details>
 </div>
@@ -297,6 +300,7 @@ window.addEventListener("load", function () {
       tabSize: 4,
       indentWithTabs: false,
       lineWrapping: true,
+      overwriteToggle: false,
       extraKeys: {
         Tab: function(cm) {
           if (cm.somethingSelected()) {

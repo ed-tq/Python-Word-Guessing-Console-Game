@@ -4,13 +4,13 @@
 This function runs the full game of 1 or more rounds and shows summary.
 
 1.  This functions takes one argument `filename`
-2.  Reads the file and turn the file contents into a list of words
+2.  Reads the file and turn the file contents into a list of words where each word is cleaned and converted to lowercase
 3.  Initialises:
     - rounds
     - number of games
     - number of wins
     - a dictionary to track wins in across 1 to 6 guesses
-4.  Repeatedly call the appropriate function that play a round
+4.  Repeatedly call the appropriate function that plays a round
 5.  After each round:
     - check if player won
     - print success or failure message showing the correct word
@@ -28,9 +28,6 @@ This function runs the full game of 1 or more rounds and shows summary.
 <details>
 <summary>💡 Hint</summary>
 <div style="padding-top:15px; padding-left:10px; padding-right:40px; padding-bottom:10px;">
-- First open the file and read the words into a list.
-    - You can use <a href="https://www.w3schools.com/python/ref_string_split.asp" target="_blank" style="text-decoration: none;"><code>.split()</code></a>
-- Do not forget to close the file after reading.
 - The dictionary counts how many wins happened in 1 guess, 2 guesses, and so on (up to 6).
 - Use a `while True:` loop so the game keeps running until the player chooses to stop.
 - At the start of each round, increase the round number by 1.
@@ -147,6 +144,7 @@ window.addEventListener("load", function () {
       tabSize: 4,
       indentWithTabs: false,
       lineWrapping: true,
+      overwriteToggle: false,
       extraKeys: {
         Tab: function(cm) {
           if (cm.somethingSelected()) {

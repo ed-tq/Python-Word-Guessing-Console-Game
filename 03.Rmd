@@ -30,23 +30,44 @@ are displayed in lowercase.
 </div>
 
 <div class="hint-block">
-  <details>
+
+<details>
 <summary>💡 Hint</summary>
+
 <div style="padding-top:15px; padding-left:10px; padding-right:40px; padding-bottom:10px;">
+
 - Use variables to store input from prompts `input()`.  
 - Copy and paste if needed.  
 - You can use `\n` in a long string `"..."` to continue a sentence on a new line.  
-- `[userName]` should be the name entered by the user.  
+- `[userName]` should be the name entered by the user.
+
+<div style="margin-left:40px; margin-top:-14px; padding-bottom:10px;">
+
 <details>
-<summary>ℹ️ More Information</summary>  
+<summary>ℹ️ More Information</summary>
+
   -  You can use f-string formatting to print a variable in a string. This works for any variable type (e.g. `str`, `int`).
+
+
+<div style="margin-left:40px; margin-top:-14px; padding-bottom:10px;">
+
 <details>
-<summary>⭐ Example</summary>  
+<summary>⭐ Example</summary>
+
 `print(f"Hello {variable_name}!")`
+
 </details>
-</details>
+
 </div>
+
 </details>
+
+</div>
+
+</div>
+
+</details>
+
 </div>
 
 
@@ -118,6 +139,7 @@ window.addEventListener("load", function () {
       tabSize: 4,
       indentWithTabs: false,
       lineWrapping: true,
+      overwriteToggle: false,
       extraKeys: {
         Tab: function(cm) {
           if (cm.somethingSelected()) {

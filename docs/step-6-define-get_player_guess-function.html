@@ -50,7 +50,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<link rel="icon" type="image/png" href="pywordlefavicon2.png">
+<link rel="icon" type="image/png" href="pywordlefavicon3.png">
 
 
 <style type="text/css">
@@ -175,7 +175,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="https://www.w3schools.com/python/python_file_open.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">File Open 🔗</a>
 <a href="https://www.w3schools.com/python/python_while_loops.asp#:~:text=The%20while%20Loop" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">While Loops 🔗</a>
 <a href="https://www.w3schools.com/python/python_strings_modify.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Modify Strings 🔗</a>
+<a href="https://www.w3schools.com/python/python_ref_string.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">String Methods 🔗</a>
 <a href="https://www.w3schools.com/python/python_conditions.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">If Statements 🔗</a>
+<a href="https://www.w3schools.com/python/python_operators_membership.asp" target="_blank" class="py-link" style="text-decoration: none; background: #e8f2fb; color: #1a5a8a; border-radius: 4px; padding: 2px 8px; border: 1px solid #bcd9f0; font-family: Consolas, monospace; font-size: 0.78em;">Membership Operators 🔗</a>
 </div>
 <div class="instructions">
 <ol style="list-style-type: decimal">
@@ -227,21 +229,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="step-6-define-get_player_guess-function.html#cb2-1" tabindex="-1"></a>variableName <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;filename.txt&quot;</span>)</span>
 <span id="cb2-2"><a href="step-6-define-get_player_guess-function.html#cb2-2" tabindex="-1"></a><span class="co"># file read code</span></span>
 <span id="cb2-3"><a href="step-6-define-get_player_guess-function.html#cb2-3" tabindex="-1"></a>variableName.close()</span></code></pre></div></li>
-<li><p>Once the file is open (where <code>variableName</code> is a file object), you have two main ways to process it:</p>
+<li><p>Once the file is open (where <code>variableName</code> is the file object), you have two ways to read and clean the words:</p>
 <ul>
-<li><p>Loop through it line by line using <code>for line in variableName</code>, which reads one line at a time as a string and allows you to process or append it to a list.</p></li>
-<li><p>Or use <code>variableName.read().split()</code>, which reads the entire file into a single string and splits it into a list of strings using whitespace by default (spaces, tabs, or newlines). <code>"1 hello".split()</code> → <code>["1", "hello"]</code></p>
-<p><strong>Note:</strong> In <code>words.txt</code>, each word is on a new line, so both approaches will produce the same result.</p></li>
-</ul></li>
-<li><p>Words may include extra whitespace or newline characters. Use <code>.strip()</code> to remove surrounding whitespace.</p></li>
-<li><p>Convert each word to lowercase using<code>.lower()</code>.</p></li>
-<li><p>You can store cleaned words using a list comprehension.</p></li>
-</ul>
-<div style="margin-left:40px;">
-<details>
-<summary>
-ℹ️
-</summary>
+<li><strong>Line by line:</strong> <code>for line in variableName</code>, which reads one line at a time as a string and allows you to process or append it to a list - use <code>.strip()</code> to remove the newline <code>\n</code> at the end of each line, and <code>.lower()</code> to lowercase.</li>
+<li><strong>Whole file:</strong> <code>variableName.read().split()</code>, which reads the entire file into a single string and splits it into a list of strings using whitespace by default (spaces, tabs, or newlines). For example, <code>"1 hello".split()</code> → <code>["1", "hello"]</code>. Since <code>.split()</code> already removes whitespace and newlines, only <code>.lower()</code> is needed. Apply <code>.lower()</code> to each word using a loop or list comprehension.
 <ul>
 <li>You can chain methods/operations as long as each method/operation works on the object type returned by the previous one:
 <ul>
@@ -253,10 +244,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>.upper()</code> works on string → returns string <code>"HELLO"</code></li>
 </ol></li>
 </ul></li>
+</ul>
+<strong>Note:</strong> In <code>words.txt</code>, each word is on a new line, so both approaches will produce the same result.</li>
+</ul></li>
+<li><p>You can store cleaned words using a list comprehension.</p></li>
+</ul>
+<div style="margin-left:40px; margin-top:-14px;">
+<details>
+<summary>
+ℹ️
+</summary>
+<ul>
 <li>Basic list comprehension format:<br />
 <code>new_list = [expression for item in iterable]</code></li>
 </ul>
-<div style="margin-left:20px;">
+<div style="margin-left:40px; margin-top:-14px;">
 <details>
 <summary>
 ⭐
@@ -351,6 +353,7 @@ window.addEventListener("load", function () {
       tabSize: 4,
       indentWithTabs: false,
       lineWrapping: true,
+      overwriteToggle: false,
       extraKeys: {
         Tab: function(cm) {
           if (cm.somethingSelected()) {
